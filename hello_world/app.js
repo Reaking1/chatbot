@@ -9,41 +9,24 @@ const port = 8000;
 //Create api
 
 app.post('/hello_world',(req,res) => {
-    res.send(
-        [{
-
-            "message": "Kompose!"
-        
-        }, {
-        
-            "message": "Select the suitable option",
-        
-            "metadata": {
-        
-            "contentType": "300",
-        
-                "templateId": "6",
-        
-                "payload": [{
-        
-                    "title": "Welcome Intent",
-        
-                    "message": "Welcome Intent",
-        
-                }, {
-        
-                    "title": "Fallback Intent",
-        
-                    "message": "Fallback Intent"
-        
-                }]
-        
-            }
-        
-        }])
-        
-        })
+    res.send([{
+        "message": "A message can be simple as a plain text" 
+    }, {
+        "message": "A message can be a rich message containing metadata",
+        "metadata": {
+        "contentType": "300",
+            "templateId": "6",
+            "payload": [{
+                "title": "Suggested Reply button 1",
+                "message": "Suggested Reply button 1"
+            }, {
+                "title": "Suggested Reply button 2",
+                "message": "Suggested Reply button 2" 
+            }]
+        }
+    }]);
+})
 
 app.listen(port,() => {
-    console.log('listen port 8000');
+    console.log("Server is running");
 })
